@@ -55,9 +55,7 @@ class Store(object):
 
     @classmethod
     def all(cls):
-        data = Database.find(StoreConstants.COLLECTION, {})
-        if data is not None:
-            return [cls(**elem) for elem in Database.find(StoreConstants.COLLECTION, {})]
+        return [cls(**elem) for elem in Database.find(StoreConstants.COLLECTION, {})]
 
     def delete(self):
         Database.remove(StoreConstants.COLLECTION, {"_id": self._id})
