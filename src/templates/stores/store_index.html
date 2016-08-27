@@ -5,7 +5,7 @@
         <small>list of stores</small>
     </h1>
 </div>
-{% if stores is not None %}
+{% if stores %}
 				<div class="list-group">
 						{% for store in stores %}
 						<a href="{{ url_for('stores.store_page', store_id=store._id) }}" class="list-group-item">
