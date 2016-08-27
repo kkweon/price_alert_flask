@@ -31,9 +31,6 @@ def login_user():
 
 @user_blueprint.route("/register", methods=['GET', 'POST'])
 def register_user():
-    if session['email']:
-        return redirect(url_for('home'))
-
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
