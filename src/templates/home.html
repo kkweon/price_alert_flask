@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+home.html
+{% endblock title %}
+{% block content %}
+<div class="jumbotron">
+    <h1>Price Alert Service</h1>
+    {% if session['email'] %}
+
+    {% else %}
+    <p>Just Sign up and get started</p>
+    <p><a href="{{ url_for('users.register_user') }}" class="btn btn-primary btn-lg" role="button">Sign up</a></p>
+    {% endif %}
+</div>
+{% endblock content %}

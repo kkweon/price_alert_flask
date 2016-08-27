@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-header">
+    <h1>Create Store</h1>
+</div>
+<div class="form-size">
+    <form method="post">
+        <div class="form-group">
+            <label for="name">Store Name</label>
+            <input type="text" id="name" name='name' class="form-control" placeholder="Store Name">
+        </div>
+        <div class="form-group">
+            <label for="url_prefix">Store URL prefix</label>
+            <input type="text" id="url_prefix" name='url_prefix' class="form-control" placeholder="http://" aria-describedby="storeURLPrefixHelp">
+            <span id="storeURLPrefixHelp" class="help-block">
+                What URL Prefix
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="tag_name">Tag name</label>
+            <input type="text" id="tag_name" name='tag_name' class="form-control" placeholder="span" aria-describedby="storeTagNameHelp">
+            <span id="storeTagNameHelp" class="help-block">
+                What HTML TAG usually <code>span</code>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="query">Search Query</label>
+            <input type="text" id="query" class="form-control" name="query" placeholder='{"id": "price-now"}' aria-describedby="storeQueryHelp">
+            <span id="storeQueryHelp" class="help-block">
+                무조건 쌍 quote를 사용해야 함.
+            </span>
+        </div>
+        <button type='submit' class="btn btn-default">Create</button>
+    </form>
+</div>
+{% endblock %}

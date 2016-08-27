@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Alert for
+    <small>{{ alert.item.name }}</small></h1>
+<p>
+    Item Current Price: {{ alert.item.price }}
+</p>
+<p>
+    Status: {{ alert.active }}
+</p>
+<p>
+    Item Price Limit Set: {{ alert.price_limit }}
+</p>
+<p>
+    Last checked Date: <strong>{{ alert.last_checked.strftime("%Y-%m-%d at %H:%M") }}</strong>
+</p>
+<p>Item link: <a href="{{ alert.item.url }}">{{ alert.item.url }}</a></p>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <a href="{{ alert.item.url }}" class="btn btn-default" role="button">Visit</a>
+        <a href="{{ url_for('alerts.edit_alert', alert_id = alert._id) }}" class="btn btn-warning">Edit</a>
+        {% if alert.active %}
+        <a href="{{ url_for('alerts.deactivate_alert', alert_id=alert._id) }}" class="btn btn-danger">Deactviate Alert</a>
+        {% else %}
+        <a href="{{ url_for('alerts.activate_alert', alert_id=alert._id) }}" class="btn btn-success">Activate Alert</a>
+        <a href="{{ url_for('alerts.delete_alert', alert_id=alert._id) }}" class="btn btn-danger">Permanently Delete</a>
+        {% endif %}
+        <a href="{{ url_for('alerts.check_alert_price', alert_id=alert._id) }}" class="btn btn-warning">Check Alert Price</a>
+    </div>
+</div>
+
+
+{% endblock %}
