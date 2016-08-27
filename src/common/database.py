@@ -4,14 +4,12 @@ import os
 
 class Database(object):
     URI = os.environ.get("MONGOLAB_URI")
-
     DATABASE = None
-    DB_NAME = 'fullstack'
 
     @staticmethod
     def initialize():
         client = pymongo.MongoClient(Database.URI)
-        Database.DATABASE = client.get_default_database()
+        Database.DATABASE = client['heroku_bxmzwrpg']
 
     @staticmethod
     def insert(collection, data):
