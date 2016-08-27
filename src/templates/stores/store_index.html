@@ -5,14 +5,20 @@
         <small>list of stores</small>
     </h1>
 </div>
-<div class="list-group">
-    {% for store in stores %}
-    <a href="{{ url_for('stores.store_page', store_id=store._id) }}" class="list-group-item">
-        <h4 class="list-group-item-title">{{ store.name }}</h4>
-        <p class="list-group-item-text">All URLs in this store should start with {{ store.url_prefix }}</p>
-    </a>
-    {% endfor %}
-</div>
+{% if stores is not None %}
+				<div class="list-group">
+						{% for store in stores %}
+						<a href="{{ url_for('stores.store_page', store_id=store._id) }}" class="list-group-item">
+								<h4 class="list-group-item-title">{{ store.name }}</h4>
+								<p class="list-group-item-text">All URLs in this store should start with {{ store.url_prefix }}</p>
+						</a>
+						{% endfor %}
+				</div>
+{% else %}
+	<p> There is no store registered </p>
+{% endif %}
+
+
 {% if session['email'] in config.ADMINS %}
     <a href="{{ url_for('stores.create_store') }}" class="btn btn-success">
         <span class="glyphicon glyphicon-plus"></span> Create New
