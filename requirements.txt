@@ -1,6 +1,6 @@
+gunicorn
 Flask
 pymongo
 beautifulsoup4
 passlib
 requests
-uwsgi

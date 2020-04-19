@@ -1,3 +1,1 @@
-from src.app import app
-
-app.run(debug=app.config['DEBUG'])
+from src.app import app as application

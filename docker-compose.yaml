@@ -1,0 +1,20 @@
+version: "3.3"
+services:
+  web:
+    build: .
+    ports:
+      - "80:1234"
+    environment:
+      PORT: 1234
+      MONGODB_URI: mongodb://db/pricealerts:27017
+  db:
+    image: mongo:4.2.5
+    restart: always
+
+    volumes:
+      - type: volume
+        source: dbdata
+        target: /data/db
+
+volumes:
+  dbdata:
